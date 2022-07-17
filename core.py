@@ -44,7 +44,7 @@ class DigikalaScraper:
 
         products = response.html.xpath('//a[contains(@class, "d-block pointer pos-relative")]')
         for product in products:
-            name = product.xpath('//h2[contains(@class, "ellipsis-2 text-body2-strong")]', first=True).text
+            name = product.xpath('//h2[contains(@class, "ellipsis-2 text-body2-strong")] | .//h3[contains(@class, "ellipsis-2 text-body2-strong")]', first=True).text
             price = product.xpath('//div[@class="pt-1 d-flex flex-column ai-stretch jc-between"]//div[contains(@class, "jc-end gap-1")]', first=True)
             price = price.text if price is not None else 'ناموجود'
             discount = product.xpath('//div[@class="pt-1 d-flex flex-column ai-stretch jc-between"]//div[contains(@class, "__discountWrapper__")]', first=True)
@@ -81,7 +81,7 @@ class DigikalaScraper:
 
         products = []
         for page_no in range(1, pages_limit+1):
-            url = f'https://www.digikala.com/search/?q={subject}&page={page_no}'
+            url = f'https://www.digikala.com/search/?q={subject}&page={page_no}&force_search_instead=1'
             url = f'{url}&{filters}' if filters is not None else url  # `None` has a bad effect on the search
             products.extend(self._scrape_page_products(url))
 
@@ -119,14 +119,14 @@ if __name__ == '__main__':
     8. Sells officially                     17. Fastest post
     9. Sells by trusted sellers
     \b\b\b\bEnter the filters to apply (no filters by default): """)
-    filters = _get_dict_keys_by_indexes(digikala_scraper.filters, [int(filter) for filter in filters.split()])
+    filters = _get_dict_keys_by_indexes(digikala_scraper.filters, [int(filter)-1 for filter in filters.split()])
     print()  # Just to make the output look better
 
-    results = pd.DataFrame(digikala_scraper.get_products(subject, pages_limit, filters if filters is not None else None))
+    results = pd.DataFrame(digikala_scraper.get_products(subject, pages_limit, filters if filters else None))
     if results.empty:
         print('No results found. Please try again later.')
         sys.exit(1)
 
     Path('exports').mkdir(exist_ok=True)
-    results.to_csv(f'exports/{subject}_results.csv', index=False)
+    results.to_csv(f'exports/{subject}.csv', index=False)
     print('All done! Check the results in the exports folder.')
