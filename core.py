@@ -7,7 +7,7 @@ from requests_html import HTMLSession
 
 
 class DigikalaScraper:
-    """Scraper for Digikala.com website to get producs data.
+    """Scraper for Digikala.com website that will scrape the products metadata.
 
     Attributes:
         session: `requests_html.HTMLSession` object.
