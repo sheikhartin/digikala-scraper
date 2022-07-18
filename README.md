@@ -1,4 +1,4 @@
-## Digikala Scraper
+## Digikala Website Scraper
 
 ![GitHub repo status](https://img.shields.io/badge/status-active-green?style=flat)
 ![GitHub license](https://img.shields.io/github/license/sheikhartin/digikala-scraper)
