@@ -6,7 +6,7 @@
 ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/sheikhartin/digikala-scraper)
 ![GitHub repo size](https://img.shields.io/github/repo-size/sheikhartin/digikala-scraper)
 
-This program scrapes [Digikala.com](https://digikala.com) for products and their details such as price, name, description, discount based on the user input. If you are interested in data analysis and doing research, don't miss this repository. You should also know a little Farsi :blush:
+This program scrapes [Digikala.com](https://digikala.com) for products and their details such as name, price, discount, stars based on the user input. If you are interested in data analysis and doing research, don't miss this repository. You should also know a little Farsi :blush:
 
 ![Happiness after getting the product](https://media.giphy.com/media/xT0GqkcOLUy13Ph0TC/giphy.gif)
 
