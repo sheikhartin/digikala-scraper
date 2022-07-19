@@ -24,8 +24,8 @@ Run the program:
 python core.py
 ```
 
-Now, you just need to customize the program to scrape the products you want. The result will be saved in a CSV file in the `exports` directory.
+Now, you just need to customize the program to scrape the products you want. The result will be saved in a CSV file in the [exports](exports) directory.
 
 ### License
 
-This project is licensed under the MIT license found in the LICENSE file in the root directory of this repository.
+This project is licensed under the MIT license found in the [LICENSE](LICENSE) file in the root directory of this repository.
